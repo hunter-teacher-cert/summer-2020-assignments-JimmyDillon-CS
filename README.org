@@ -1,5 +1,5 @@
 * Last name: Dillon
-* First name: JImmy
+* First name: Jimmy
 * Github username:
 JimmyDillon-CS
 * Instructions:
