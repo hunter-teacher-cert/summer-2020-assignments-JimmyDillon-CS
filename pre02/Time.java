@@ -1,3 +1,5 @@
+import java.math.*;
+
 public class Time {
 
     public static void main(String[] args) {
@@ -18,21 +20,25 @@ Hint: You might want to use additional variables to hold values during the compu
 	int start_minute = 18;
 	int start_second = 5;
 	int end_hour = 17;
-	int end_minute = 30;
-	int end_second 10;
+	int end_minute = 51;
+	int end_second = 10;
 
-	int seconds_since_midnight = hour * 60 * 60 + minutes * 60 + seconds;
+	int seconds_since_midnight = start_hour * 60 * 60 + start_minute * 60 + start_second;
 	int daily_seconds = 24 * 60 * 60;
-	int seconds_remaining = daily_seconds - seconds_since-midnight;
-	float percentage_passed = seconds_since_midnight / (daily_seconds) * 100;
+	int seconds_remaining = daily_seconds - seconds_since_midnight;
+	float percentage_passed = (float) seconds_since_midnight / daily_seconds * 100;
 
 	int start_sec = start_hour * 60 * 60 + start_minute * 60 + start_second;
 	int end_sec = end_hour * 60 * 60 + end_minute * 60 + end_second;
-	int delta_time = start_sec - end_sec;
+	int delta_time = end_sec - start_sec;
+	int delta_hour = delta_time / (60 * 60);
+	int delta_minute = (delta_time - delta_hour * 60 * 60) / 60;
+	int delta_second = delta_time - delta_hour * 60 * 60 - delta_minute * 60;
 	
 	System.out.println("It has been " + seconds_since_midnight + " seconds since midnight.");
         System.out.println("There are " + seconds_remaining + " seconds remaining in the day.");
 	System.out.println("Percentage of the day that has passed: " + percentage_passed);
         System.out.println(delta_time + " seconds have passed since you started this program");
+	System.out.println("It has been " + delta_hour + " hours, "+ delta_minute +  " minutes, and " + delta_second + " seconds since you start.");
     }
 }
