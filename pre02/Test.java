@@ -11,5 +11,9 @@ public class Test {
       int inch = 2;
       double cm = 5.08;
 
-      printf("%d inches is %f centimeters", inch, cm);
+      System.out.printf("%d inches is %f centimeters", inch, cm);
+
+      //Throws run-time error because of an illegal format conversion
+      //System.out.printf("%f inches is %d centimeters", inch, cm);
     }
+}
