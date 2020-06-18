@@ -10,6 +10,14 @@ public class Temp {
     public static void main(String[] args) {
       Scanner in = new Scanner (System.in);
 
-      
+      System.out.println("What is the temperature in degrees Fahrenheit?");
+
+      F_to_C(in.nextInt());
+    }
+
+    public static void F_to_C(int f){
+      double c = ((double)f - 32) * 5 / 9;
+      System.out.printf("%d degrees Fahrenheit converts to %.2f degrees Celsius", f, c);
+      System.out.println();
     }
 }
