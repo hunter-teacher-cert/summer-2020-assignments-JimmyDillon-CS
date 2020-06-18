@@ -26,7 +26,7 @@ Hint: You might want to use additional variables to hold values during the compu
 	int seconds_since_midnight = start_hour * 60 * 60 + start_minute * 60 + start_second;
 	int daily_seconds = 24 * 60 * 60;
 	int seconds_remaining = daily_seconds - seconds_since_midnight;
-	float percentage_passed = (float) seconds_since_midnight / daily_seconds * 100;
+	double percentage_passed = (double) seconds_since_midnight / daily_seconds * 100;
 
 	int start_sec = start_hour * 60 * 60 + start_minute * 60 + start_second;
 	int end_sec = end_hour * 60 * 60 + end_minute * 60 + end_second;
@@ -34,7 +34,7 @@ Hint: You might want to use additional variables to hold values during the compu
 	int delta_hour = delta_time / (60 * 60);
 	int delta_minute = (delta_time - delta_hour * 60 * 60) / 60;
 	int delta_second = delta_time - delta_hour * 60 * 60 - delta_minute * 60;
-	
+
 	System.out.println("It has been " + seconds_since_midnight + " seconds since midnight.");
         System.out.println("There are " + seconds_remaining + " seconds remaining in the day.");
 	System.out.println("Percentage of the day that has passed: " + percentage_passed);
