@@ -17,9 +17,12 @@ public class Sec_Con {
 
     public static void Converter(int s){
       int sec_in_hour = 60 * 60;
+      int sec_in_min = 60;
+      //Expressions
       int hours = s / sec_in_hour;
-      int minutes = (s % 3600) / 60;
-      int seconds = s % 60;
+      int minutes = (s % sec_in_hour) / sec_in_min;
+      int seconds = s % sec_in_min;
+      //Output
       System.out.printf("%d seconds = %d hours, %d minutes, and %d seconds", s, hours, minutes, seconds);
       System.out.println();
     }
