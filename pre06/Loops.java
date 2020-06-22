@@ -60,12 +60,24 @@ public class Loops {
     }
 
     if (choice == 5){
+      /**
       System.out.println("Let's approximate e^x! What is the value of x?");
       int x = in.nextInt();
       System.out.println("Great! How many terms of the infinite series would you like to expand?");
       int terms = in.nextInt();
+      */
 
-      System.out.println("The result is: " + myexp(x, terms));
+      double i = 0.1;
+      while (i <=100){ // accuracy decreases as the value of i increase
+        Check(i, 50);
+        i = i * 10;
+      }
+
+      i = -.01;
+      while (i >= -100){ // accuracy decreases as the value of i decreases
+        Check(i, 50);
+        i = i * 10;
+      }
     }
   }
 
@@ -132,7 +144,14 @@ public class Loops {
     return result;
   }
 
-  public static double myexp (int x, int n){
+  /**
+   * Calculates the Taylor Series for e^x
+   *
+   * @param x is a double that represens the value of x and n is an integer representing the number of terms in the series.
+   * @return double representing the calculation of the series.
+   */
+
+  public static double myexp (double x, int n){
     double term_num = 1.0;
     double term_den = 1.0;
     double prev_num;
@@ -149,5 +168,17 @@ public class Loops {
     }
 
     return result;
+  }
+
+  /**
+   * Checks the accuracy of the Taylor Series run through Java by displaying results in table form compared to Java's Math package. As the values of x get further from 1, positive and negative, the accuracy decreases.
+   *
+   * @param x is a double that represens the value of x and n is an integer representing the number of terms in the series.
+   * @return does not return a value.
+   */
+
+  public static void Check(double x, int n){
+    System.out.printf("%.1f \t %.16f \t %.16f", x, myexp(x, n), Math.exp(x));
+    System.out.println();
   }
 }
