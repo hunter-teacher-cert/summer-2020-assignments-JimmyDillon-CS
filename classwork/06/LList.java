@@ -127,7 +127,7 @@ public class LList{
         return;
       }
 
-      if (index >= length()){
+      if (index > length()){
         return;
       }
 
@@ -149,9 +149,10 @@ public class LList{
     public int search(String key){
       int index = 0;
       while (index < length()){
-        if(key.equals(nodeAtIndex(index))){
+        if(key.equals(nodeAtIndex(index).getData())){
           return index;
         }
+        index++;
       }
       return -1;
     }
