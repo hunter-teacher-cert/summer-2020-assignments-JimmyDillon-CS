@@ -22,6 +22,10 @@ public class SuperArray {
       }
     }
 
+    public void add(int index, int value){
+      this.data[index] = value;
+    }
+
     /**
     * Return the value at location index from the array. If index is past the last element, return -1.
     */
