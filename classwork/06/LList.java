@@ -21,12 +21,12 @@ public class LList{
     }
 
     public String toString(){
-    	String s = "";
+    	String s = "< ";
 
     	Node tmp;
     	tmp = head;
     	while (tmp != null){
-    	    s = s + tmp.getData()+"-->";
+    	    s = s + tmp.getData()+" ";
     	    // how can we now move tmp to the next node
     	    // this is the magic linked list idiom!!!!
     	    // this moves a pointer to the next node!!!
@@ -34,7 +34,7 @@ public class LList{
     	    tmp = tmp.getNext();
     	}
 
-    	s = s + "null";
+    	s = s + ">";
     	return s;
     }
 
@@ -127,6 +127,10 @@ public class LList{
         return;
       }
 
+      if (index >= length()){
+        return;
+      }
+
       Node newnode = new Node(value); // make a tmp node
 
       Node tmp = nodeAtIndex(index-1); // Set temp Node to Node prior to insert
@@ -152,6 +156,11 @@ public class LList{
       return -1;
     }
 
+/**
+    remove (String key)
+    Removes the Node at index from the list
+    If index is invalid, do nothing.
+*/
 
     public void remove(int index){
       if (index == 0){ // handle the base case of insert at the front
