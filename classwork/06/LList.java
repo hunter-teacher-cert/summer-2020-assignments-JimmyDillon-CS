@@ -81,7 +81,7 @@ public class LList{
         return nodeAtIndex(index).getData();
       }
       else{
-        return;
+        return null;
       }
     }
 
@@ -93,7 +93,7 @@ public class LList{
 
     public void set(int index, String value){
       if(nodeAtIndex(index) != null){
-        return nodeAtIndex(index).setData(value);
+        nodeAtIndex(index).setData(value);
       }
     }
 
@@ -122,28 +122,45 @@ public class LList{
 */
 
     public void insert(int index, String value){
-    	// make new node
-      Node newnode = new Node(value);
-  	   // make a tmp node
-      Node tmp;
-      tmp = nodeAtIndex(index-1); //
+      if (index == 0){ // handle the base case of insert at the front
+        addFront(value);
+        return;
+      }
 
-      newnode.getNext(tmp.getNext()) // New Node is linked to the Nodes after it.
+      Node newnode = new Node(value); // make a tmp node
 
-      temp.getNext(newnode); 
+      Node tmp = nodeAtIndex(index-1); // Set temp Node to Node prior to insert
 
-    	// move temp down the list until it's right BEFORE the insertion point
+      newnode.setNext(tmp.getNext()); // New Node is linked to the Nodes after it.
 
-    	// insert
+      tmp.setNext(newnode); // insert
     }
 
+/**
+    search (String key)
+    Returns the index of the first time key occurs in the list
+    Returns -1 if key is not found
+*/
+
+    public int search(String key){
+      int index = 0;
+      while (index < length()){
+        if(key.equals(nodeAtIndex(index))){
+          return index;
+        }
+      }
+      return -1;
+    }
+
+
     public void remove(int index){
-  	// make a tmp node
+      if (index == 0){ // handle the base case of insert at the front
+        head = head.getNext();
+      }
 
+      Node tmp = nodeAtIndex(index-1); // Set temp Node to Node prior to insert
 
-  	// move tmp down the list until it's BEFORE the node we want to delete
-
-  	// change tmp's next pointer to skip the node we are deletin
+      tmp.setNext(tmp.getNext().getNext()); // skip over the removed Node.
     }
 
 }
