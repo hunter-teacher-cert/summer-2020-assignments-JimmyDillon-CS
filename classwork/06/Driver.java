@@ -16,6 +16,7 @@ public class Driver{
 	l.add("Larry");
 	System.out.println(l);
 
+
 	l.add("Harpo");
 	l.add("Groucho");
 	l.add("Chico");
@@ -23,20 +24,31 @@ public class Driver{
 	l.add("Gummo");
 	System.out.println(l);
 
+	System.out.println(l.length());
 
-	a.get(3);
-	a.remove(3);'
+	LList l2 = new LList();
+	System.out.println(l2.length());
+
+
+
+
+
+
+
 	// Node n1;
 	// Node n2;
+
 	// n1 = new Node("Tim");
 	// n2 = new Node("Arthur");
 	// n1.setNext(n2);
 	// System.out.println(n1);
 	// System.out.println(n2);
 	// System.out.println(n1.getNext());
+
 	// n1.getNext().setData("Robin");
 	// System.out.println(n1);
 	// System.out.println(n2);
+
 	// Node n3 = new Node("Merlin",n2);
 	// n1.setNext(n3);
 	// System.out.println(n1);
