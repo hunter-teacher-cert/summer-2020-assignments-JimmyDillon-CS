@@ -77,16 +77,8 @@ public class LList{
 */
 
     public String get(int index){
-      if(index < this.length()){
-        int counter = 0;
-        Node tmp = new Node();
-        tmp = head;
-
-        while (counter < index){
-            tmp = tmp.getNext();
-            counter++;
-        }
-        return tmp.getData();
+      if(nodeAtIndex(index) != null){
+        return nodeAtIndex(index).getData();
       }
       else{
         return;
@@ -100,29 +92,45 @@ public class LList{
 */
 
     public void set(int index, String value){
-      if(index < this.length()){
-        int counter = 0;
-        Node tmp = new Node();
-        tmp = head;
-
-        while (counter < index){
-            tmp = tmp.getNext();
-            counter++;
-        }
-        tmp.setData(value);
+      if(nodeAtIndex(index) != null){
+        return nodeAtIndex(index).setData(value);
       }
     }
 
+/**
+    nodeAtIndex(int index)
+    Returns the Node at index
+*/
+
+  public Node nodeAtIndex(int index){
+    Node tmp; // temporary node to run through list
+    tmp = head; // set it to the head
+
+    int counter = 0; // counter
+
+    while ((tmp !=null) && (counter < index)){
+        tmp = tmp.getNext();
+        counter++;
+    }
+    return tmp;
+  }
+
+/**
+    insert (int index, String value)
+    Insert a new Node containing value at index
+    If index is invalid, do nothing.
+*/
 
     public void insert(int index, String value){
     	// make new node
       Node newnode = new Node(value);
   	   // make a tmp node
       Node tmp;
-      tmp = head;
+      tmp = nodeAtIndex(index-1); //
 
-      int iterator;
-      while(iterator != index)
+      newnode.getNext(tmp.getNext()) // New Node is linked to the Nodes after it.
+
+      temp.getNext(newnode); 
 
     	// move temp down the list until it's right BEFORE the insertion point
 
