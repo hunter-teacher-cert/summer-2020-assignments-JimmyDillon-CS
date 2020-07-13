@@ -6,7 +6,7 @@ public class myStack{
   private LList stack;
 
   public myStack(){
-    stack = null;
+    stack = new LList();
   }
 
   public void push(String data){
@@ -24,7 +24,7 @@ public class myStack{
   }
 
   public boolean isEmpty(){
-      return stack == null;
+      return stack.length() == 0;
   }
 
   public int size(){
