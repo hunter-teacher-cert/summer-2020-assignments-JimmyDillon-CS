@@ -1,14 +1,19 @@
-import java.utli.*;
-import java.io;
+import java.util.*;
+import java.io.*;
 
-public class MyStack extends Stack{
+public class MyStack {
   
 /*  
     Converts a String into a stack with each individual character the stack.
 **/
 
-  public Stack<Character> parserStoC (String s){
-    Stack<Character> charStack = new Stack<Character>;
+  public static Stack <Character> parseStoC (String s){
+    Stack<Character> charStack = new Stack<Character>();
+    
+    for (int i = 0; i < s.length(); i++){
+      charStack.push(s.charAt(i));
+    }
+    
     return charStack;
   }
 
@@ -16,8 +21,8 @@ public class MyStack extends Stack{
 Converts a String with spaces into a stack with each individual word stored as a String in the stack
 **/
 
-  public Stack<String> parserStoS (String s){
-    Stack<String> stringStack = new Stack<String>;
+  public static Stack <String> parseStoS (String s){
+    Stack<String> stringStack = new Stack<String>();
     return stringStack;
   }
 
@@ -25,8 +30,16 @@ Converts a String with spaces into a stack with each individual word stored as a
     returns String s in reverse order by character or returns String s in reverse order by individual Strings if a space is included in the string.
 **/
   
-  public static String reverse(Sting s){
-    return s;
+  public static String reverse(String s){
+    String returnString = new String();
+    
+    Stack<Character> charStack = parseStoC(s);
+    
+    while (!charStack.empty()){
+      returnString += charStack.pop();
+    }
+    
+    return returnString;
   }
   
 /*
@@ -34,7 +47,9 @@ Converts a String with spaces into a stack with each individual word stored as a
 **/
 
   public static boolean isPalindrome(String s){
-    return true;
+
+    return s.equals(reverse(s));
+
   }
 
 /*
@@ -43,6 +58,11 @@ Converts a String with spaces into a stack with each individual word stored as a
 
   public static boolean parenCheck(String s){
     return true;
+  }
+  
+  public static void main (String args[]){
+    String s = "racecar";
+    System.out.println(isPalindrome(s));
   }
   
 }
