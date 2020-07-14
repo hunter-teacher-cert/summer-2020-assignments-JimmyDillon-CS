@@ -71,19 +71,17 @@ Converts a String with spaces into a stack with each individual word stored as a
 
   }
   
-  public static boolean isPalindrome(Stack<String> stringStack){
+  public static boolean isPalindromeSpaces(String s){
   
-    Stack<String> revStack = reverse(stringStack);
+    Stack<String> stringStack = parseStoS(s);
+
+    String revString = stringStack.pop();
     
-    System.out.println(revStack);
-    
-    System.out.println(stringStack.toString());
-  
-    return stringStack.equals(revStack);
-    
-    //return true;
-    
-    //return stringStack.toString().equals(reverse(stringStack).toString());
+    while(!stringStack.empty()){
+      revString = revString + " " + stringStack.pop();
+    }
+
+    return s.equals(revString);
     
   }
 
@@ -96,15 +94,11 @@ Converts a String with spaces into a stack with each individual word stored as a
   }
   
   public static void main (String args[]){
-    String s = "racecar is a racecar";
+    String s = "racecar is racecar";
+    String t = "racecar is a racecar";
     
-    Stack<String> stringStack = parseStoS(s);
-    System.out.println(s);
-    
-    Stack<String> revStack = parseStoS(s);
-    
-    System.out.println(isPalindrome(stringStack));
-    
+    System.out.println(isPalindromeSpaces(s));
+    System.out.println(isPalindromeSpaces(t));
     
   }
   
