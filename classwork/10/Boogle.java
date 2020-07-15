@@ -42,7 +42,7 @@ public class Boogle
     int ceiling = al.size()-1;
 
     
-    /* Iterative solution follows:    
+
     int middle = ceiling/2;
     
     if(al.isEmpty())
@@ -168,7 +168,7 @@ public class Boogle
 
 
     // test battery using sorted ArrayLists as search space
-
+/*~~~~v~~~~~~move~me~down~~~1~block~at~a~time~~~~~~~~~~v~~~~
     System.out.println("\n"+"sal000"+":");
     ArrayList sal000 = prestoSortedArrayListo(0,0,0);
     System.out.println(sal000);
@@ -214,7 +214,7 @@ public class Boogle
     System.out.println(sal05);
     System.out.println(linSearch(sal05,3));
     System.out.println(binSearch(sal05,3));
-/*~~~~v~~~~~~move~me~down~~~1~block~at~a~time~~~~~~~~~~v~~~~
+
       ~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~*/
 
     //batch of commands for easier test case generation:
@@ -225,6 +225,53 @@ public class Boogle
     System.out.println(linSearch(al, ));
     System.out.println(binSearch(al, ));
     */
+    
+/**
+       ~~~ The RSPB Special Trace-athon ~~~
+       YOUR MISSION:
+       Form a Dynamic Duo of Destiny or a Trio of Triump. Conjure team name portending greatness (TNPG).
+       Copypasta this into main method of your java sourcecode file containing methods linSearch and binSearch
+         (Boogle.java for almost all of you)
+       Verify it works. 
+          (If any test calls do not yield expected outputs, there is some tuning to be done... 
+           Probably best to just grab a working version for now.)
+       On KtS, with at least 1 tracing buddy, trace out each binSearch() call.
+       NOTA BENE: The second batch of test calls are identical to the first, 
+                  except that the search space has grown by 1 element...
+**/
+    
+    ArrayList salamander = new ArrayList();
+
+    //explicitly fill arraylist with intent to search for
+    // present and nonpresent values...
+    // generate an arraylist with an odd num of elems...
+    salamander.add(4);
+    salamander.add(8);
+    salamander.add(15);
+    salamander.add(16);
+    salamander.add(23);
+    System.out.println(salamander);
+
+    //search for target in the list
+    System.out.println(binSearch(salamander, 8));  // 1
+    System.out.println(binSearch(salamander, 15)); // 2
+    System.out.println(binSearch(salamander, 16)); // 3
+
+    //search for target not in the list
+    System.out.println(binSearch(salamander, 3)); // -1
+    System.out.println(binSearch(salamander, 9)); // -1
+
+    //add another element, for an even num of elems
+    salamander.add(42);
+    System.out.println(salamander);
+    //search for target in the list
+    System.out.println(binSearch(salamander, 8));  // 1
+    System.out.println(binSearch(salamander, 15)); // 2
+    System.out.println(binSearch(salamander, 16)); // 3
+
+    //search for target not in the list
+    System.out.println(binSearch(salamander, 3)); // -1
+    System.out.println(binSearch(salamander, 9)); // -1
   }//end main
 
 }//end class
