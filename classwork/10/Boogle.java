@@ -34,32 +34,37 @@ public class Boogle
   }//end linSearch()
 
 
-
-
-
-
-
-
   //return index of target, or -1 if not found
   public static int binSearch( ArrayList al, int target )
   {
-    // <INSERT YOUR MACHINERY HERE>...
-    return -1; //placeholder to get past compiler
-  }//end binSearch()
-
-
-
-  // subgoal: recognize target found (and take what action?)
-  // subgoal: recognize search space exhausted (and take what action?)
-  // subgoal: recognize target in lower portion of range (and do what?)
-  // subgoal: recognize target in upper portion of range (and do what?)
-
-  //nota bene: A helper method could be very useful.
-  // Q: Why?
-  // Q: What would the parameters be for such a method?
-
-
-
+    int floor = 0;
+    int ceiling = al.size()-1;
+    int middle = ceiling/2;
+    
+    if(al.isEmpty())
+      return -1;
+    
+    while (floor < ceiling){
+      if(target == (int)al.get(middle)){
+        return middle;
+      }
+      else if(target < (int)al.get(middle)){
+        ceiling = middle - 1;
+        middle = (ceiling+floor)/2;
+      }
+      else if(target > (int)al.get(middle)){
+        floor = middle + 1;
+        middle = (ceiling+floor)/2;
+      }
+    }
+    
+    if(target == (int)al.get(floor)){
+      return floor;
+    }
+    else {
+      return -1;
+    }
+  }
   //return ArrayList of random ints on range [lo,lo+hi)
   public static ArrayList prestoArrayListo(int numItems, int lo, int hi)
   {
@@ -131,24 +136,28 @@ public class Boogle
 
 
     // test battery using sorted ArrayLists as search space
-    /*~~~~v~~~~~~move~me~down~~~1~block~at~a~time~~~~~~~~~~v~~~~
+
     System.out.println("\n"+"sal000"+":");
     ArrayList sal000 = prestoSortedArrayListo(0,0,0);
     System.out.println(sal000);
     System.out.println(linSearch(sal000,3));
     System.out.println(binSearch(sal000,3));
+    
 
     System.out.println("\n"+"sal00"+":");
     ArrayList sal00 = prestoSortedArrayListo(5,0,100);
     System.out.println(sal00);
     System.out.println(linSearch(sal00,3));
     System.out.println(binSearch(sal00,3));
-
+ 
+   
     System.out.println("\n"+"sal01"+":");
     ArrayList sal01 = prestoSortedArrayListo(5,0,100);
     System.out.println(sal01);
     System.out.println(linSearch(sal01,3));
     System.out.println(binSearch(sal01,3));
+
+
 
     System.out.println("\n"+"sal02"+":");
     ArrayList sal02 = prestoSortedArrayListo(5,3,100);
@@ -173,6 +182,7 @@ public class Boogle
     System.out.println(sal05);
     System.out.println(linSearch(sal05,3));
     System.out.println(binSearch(sal05,3));
+/*~~~~v~~~~~~move~me~down~~~1~block~at~a~time~~~~~~~~~~v~~~~
       ~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~*/
 
     //batch of commands for easier test case generation:
