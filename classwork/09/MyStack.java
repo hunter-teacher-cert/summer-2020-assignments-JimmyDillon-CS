@@ -90,16 +90,54 @@ Converts a String with spaces into a stack with each individual word stored as a
 **/
 
   public static boolean parenCheck(String s){
-    return true;
+    Stack<Character> charStack = new Stack<Character>();
+    
+    for (int i = 0; i < s.length(); i++){
+      char currChar = s.charAt(i);
+      
+      if((currChar == '(') || (currChar == '{') || (currChar == '[')){
+        charStack.push(currChar);
+      }
+      
+      else if((currChar == ')') || (currChar == '}') || (currChar == ']')){
+        if (charStack.empty()){
+          return false;
+        }
+        else if (parenMatch(currChar, charStack.peek())){
+          charStack.pop();
+        }
+      }
+    }
+    return charStack.empty();
   }
   
+  public static boolean parenMatch(char left, char right){
+    if((left == ')') && (right == '('))
+      return true;
+      
+    else if((left == '}') && (right == '{'))
+      return true;
+      
+    else if((left == ']') && (right == '['))
+      return true;
+      
+    else
+      return false;
+  }
+  
+  
   public static void main (String args[]){
+    /* Testing for palindromes
     String s = "racecar is racecar";
     String t = "racecar is a racecar";
     
     System.out.println(isPalindromeSpaces(s));
     System.out.println(isPalindromeSpaces(t));
+    */
     
+    System.out.println(parenCheck("([{}])"));
+    System.out.println(parenCheck(")))"));
+    System.out.println(parenCheck("(a[]{}s)(a{}s)"));
   }
   
 }
