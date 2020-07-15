@@ -37,8 +37,12 @@ public class Boogle
   //return index of target, or -1 if not found
   public static int binSearch( ArrayList al, int target )
   {
+
     int floor = 0;
     int ceiling = al.size()-1;
+
+    
+    /* Iterative solution follows:    
     int middle = ceiling/2;
     
     if(al.isEmpty())
@@ -64,6 +68,34 @@ public class Boogle
     else {
       return -1;
     }
+    */
+    
+    /* Recursive solution follows:
+    */
+    
+    return binSearchHelper(al, target, floor, ceiling);
+  }
+  
+  public static int binSearchHelper(ArrayList al, int target, int lo, int hi){
+    int mid = (lo + hi) / 2;
+   
+    if(al.isEmpty())
+      return -1;
+    
+    if(target == (int)al.get(mid))
+      return mid;
+  
+    else if (lo == hi)
+      return -1;
+  
+    else if (target < (int)al.get(mid))
+      return binSearchHelper(al, target, lo, mid - 1);
+    
+    else if (target > (int)al.get(mid))
+      return binSearchHelper(al, target, mid + 1, hi);
+    
+    else
+      return -1;
   }
   //return ArrayList of random ints on range [lo,lo+hi)
   public static ArrayList prestoArrayListo(int numItems, int lo, int hi)
