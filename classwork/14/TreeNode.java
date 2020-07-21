@@ -19,4 +19,12 @@ public class TreeNode {
     right = null;
   }
 
+  public int get (){
+    return data;
+  }
+
+  public void set (int data){
+    this.data = data;
+  }
+
 }
