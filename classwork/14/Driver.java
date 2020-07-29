@@ -12,9 +12,19 @@ public class Driver {
     t.insert(7);
     t.insert(8);
     t.insert(3);
+    t.insert(17);
+    t.insert(2);
+    t.insert(4);
+    t.insert(6);
+
+    t.preorderTraverse();
+
+    t.delete(5);
 
 
-    t.search(20);
+    //t.preorderTraverse();
+    //t.postorderTraverse();
+    t.preorderTraverse();
   }
 
 }
