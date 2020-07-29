@@ -1,0 +1,102 @@
+For the Data Structure Design Challenge, I decided to use a hash table (which I had never created before). To handle possible collisions (for example, when two contacts with the same last name are added), made the table by creating an array of linked lists. 
+
+I chose to use linked lists because I was happy with the one I created back on day 8 and appreciated its functionality. Inside the linked lists are objects called Person, which contain first and last name and phone number.
+
+Here's a diagram:
+
+            PhoneBook
+
+            +-------+            Linked List of Person objects
+  Array     |   0   |
+  of        +-------+         +----------+         +----------+
+  Linked    |   1   |-------->|  PERSON  |-------->|  PERSON  |--------> null
+  Lists     +-------+         +----------+         +----------+
+            |   2   |
+            +^^^^^^^+
+
+            +^^^^^^^+
+            |  254  |
+            +-------+
+            |  255  |
+            +-------+
+
+PhoneBook
++--------------------------------+
+| ATTRIBUTES:                    |
+| + LList [] buckets             |
+| + int size                     |
++--------------------------------+
+| METHODS:                       |
+| + add (Person)                 |
+| + find (String)                |
+| + remove (String)              |
+| + printList ()                 |
+| + reverseLookup (String)       |
+| + hashFunction(Person)         |
+| + hashFunction(String)         |
++--------------------------------+
+
+LList
++--------------------------------+
+| ATTRIBUTES:                    |
+| + Person head                  |
++--------------------------------+
+| METHODS:                       |
+| + add (Person)                 |
+| + toString ()                  |
+| + length ()                    |
+| + addFront (Person)            |
+| + isEmpty ()                   |
+| + get (String)                 |
+| + set (String)                 |
+| + personAtIndex (int)          |
+| + insert (Person)              |
+| + search (String)              |
+| + remove (String)              |
++--------------------------------+
+
+Person
++--------------------------------+
+| ATTRIBUTES:                    |
+| + String lastName              |
+| + String firstName             |
+| + String phoneNumber           |
+| + Person nextPerson            |
++--------------------------------+
+| METHODS:                       |
+| + getLast ()                   |
+| + getFirst ()                  |
+| + getPhone ()                  |
+| + getNext ()                   |
+| + getData ()                   |
+| + setLast (String)             |
+| + setFirst (String)            |
+| + setPhone (String)            |
+| + setNext (Person)             |
+| + setData (String)             |
++--------------------------------+
+
+Run-Time Information:
++-------------------------------------------------------+
+|Operation  | Best Case           | Worst Case          |
++-----------+---------------------+---------------------|
+| add       | O(1) - happens imm- | O(n) - if too many  |
+|           | ediately thx to hash| collisions happen.  |
++-----------+---------------------+---------------------+
+| find      | O(1) - happens imm- | O(n) - if too many  |
+|           | ediately thx to hash| collisions happened.|
++-----------+---------------------+---------------------+
+| remove    | O(1) - happens imm- | O(n) - if too many  |
+|           | ediately thx to hash| collisions happened.|
++-----------+---------------------+---------------------+
+| printList | O(n) - must walk    | O(n) - same as the  |
+|           | through entire array| best case.          |
++-----------+---------------------+---------------------+
+| reverse-  | O(n) - must walk    | O(n) - same as the  |
+|  Lookup   | through entire array| best case.          |
++-----------+---------------------+---------------------+
+
+Reverse Lookup
+1. I would use an algorithm similar to printList that walks the entire Array of Linked Lists. In the case of Reverse Lookup though, it would try to find a Person with the phone number that matches the search value.
+
+2. You could augment the data structure so that it hashes the phone number rather than the last name. If you did this, then the new run time would be O(1) in the best case and O(n) in the worst case.

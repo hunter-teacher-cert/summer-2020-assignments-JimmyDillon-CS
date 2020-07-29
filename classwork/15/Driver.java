@@ -10,18 +10,33 @@ public static void main(String[] args) {
   LList bucket = new LList();
   PhoneBook book = new PhoneBook(256);
 
+  System.out.println("Empty phone book.");
+  book.printList();
+  System.out.println();
+  System.out.println("Adding four new entries:");
   book.add(jimmy);
   book.add(hiral);
   book.add(smith);
   book.add(jen);
-
+  System.out.println();
+  System.out.println("Printing updated phone book...");
+  System.out.println();
+  System.out.println("Finding Smith...");
+  System.out.println();
   System.out.println(book.find("Smith"));
-
+  System.out.println();
+  System.out.println("Printing updated phone book...");
+  System.out.println();
   book.printList();
-
+  System.out.println();
+  System.out.println("Removing Dillon...");
   book.remove("Dillon");
-
+  System.out.println();
+  System.out.println("Printing updated phone book...");
+  System.out.println();
   book.printList();
-
+  System.out.println();
+  System.out.println("Reverse Lookup on 443-603-5631...");
+  System.out.println(book.reverseLookup("443-603-5631"));
   }
 }

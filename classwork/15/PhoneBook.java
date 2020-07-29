@@ -1,22 +1,26 @@
 public class PhoneBook{
   private LList[] buckets;
   private static int size;
+  private static int entries;
 
   public PhoneBook(int size){
       buckets = new LList[size];
       this.size = size;
+      entries = 0;
   }
 
 /*
   Add a new entry to the phone book
 */
   public void add (Person newPerson){
+      String last = newPerson.getLast();
       int hash = hashFunction(newPerson);
       if (buckets[hash] == null){
         LList newBucket = new LList();
         buckets[hash] = newBucket;
       }
       buckets[hash].add(newPerson);
+      entries++;
   }
 
 /*
@@ -39,12 +43,13 @@ public class PhoneBook{
 */
   public void remove (String key){
       int hash = hashFunction(key);
-      // System.out.print("hash for Dillon is: ");
-      // System.out.println(hash);
       int index = buckets[hash].search(key);
-      // System.out.print("index for Dillon is: ");
-      // System.out.println(index);
-      buckets[hash].remove(index);
+      if (index > -1){
+        buckets[hash].remove(index);
+        entries--;
+      } else{
+        System.out.println("Result not found.");
+      }
   }
 
 /*
@@ -58,14 +63,27 @@ public class PhoneBook{
       }
   }
 
+  public String reverseLookup (String phoneNumber){
+    for (int i = 0; i < buckets.length ; i++) {
+      if (buckets[i] != null){
+        if (buckets[i].searchPhone(phoneNumber) != null){
+          return buckets[i].searchPhone(phoneNumber);
+        }
+      }
+    }
+    return "No Phone Number Found.";
+}
+
 /*
     Creates a hash based on the last name of the person
 */
   public static int hashFunction(Person added){
+      //System.out.println("in hashfunction");
       return hashFunction(added.getLast());
   }
 
   public static int hashFunction(String last){
+      //System.out.println("in hash function for string");
       return last.hashCode()%size;
   }
 

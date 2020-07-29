@@ -148,7 +148,6 @@ public class LList{
 
     public int search(String key){
       int index = 0;
-      String result = "Result found for ";
       while (index < length()){
         if(key.equals(personAtIndex(index).getLast())){
           return index;
@@ -156,6 +155,17 @@ public class LList{
         index++;
       }
       return -1;
+    }
+
+    public String searchPhone(String key){
+      int index = 0;
+      while (index < length()){
+        if(key.equals(personAtIndex(index).getPhone())){
+          return personAtIndex(index).getData();
+        }
+        index++;
+      }
+      return null;
     }
 
 /**
