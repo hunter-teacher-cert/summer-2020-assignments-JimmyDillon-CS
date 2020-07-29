@@ -21,7 +21,7 @@ public class Driver {
 
     t.delete(5);
 
-
+    // prior traverses
     //t.preorderTraverse();
     //t.postorderTraverse();
     t.preorderTraverse();
