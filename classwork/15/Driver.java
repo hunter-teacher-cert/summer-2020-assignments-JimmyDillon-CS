@@ -7,7 +7,7 @@ public static void main(String[] args) {
   Person smith = new Person ("Smith", "John", "123-456-7890");
   Person jen = new Person ("Dillon", "Jen", "301-534-2345");
 
-  LList bucket = new LList();
+  Bucket bucket = new Bucket();
   PhoneBook book = new PhoneBook(256);
 
   System.out.println("Empty phone book.");

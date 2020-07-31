@@ -1,4 +1,4 @@
-For the Data Structure Design Challenge, I decided to use a hash table (which I had never created before). To handle possible collisions (for example, when two contacts with the same last name are added), made the table by creating an array of linked lists. 
+For the Data Structure Design Challenge, I decided to use a hash table (which I had never created before). To handle possible collisions (for example, when two contacts with the same last name are added), made the table by creating an array of linked lists.
 
 I chose to use linked lists because I was happy with the one I created back on day 8 and appreciated its functionality. Inside the linked lists are objects called Person, which contain first and last name and phone number.
 
@@ -6,7 +6,7 @@ Here's a diagram:
 
             PhoneBook
 
-            +-------+            Linked List of Person objects
+            +-------+            Linked List (Bucket) of Person objects
   Array     |   0   |
   of        +-------+         +----------+         +----------+
   Linked    |   1   |-------->|  PERSON  |-------->|  PERSON  |--------> null
@@ -23,7 +23,7 @@ Here's a diagram:
 PhoneBook
 +--------------------------------+
 | ATTRIBUTES:                    |
-| + LList [] buckets             |
+| + Bucket [] buckets            |
 | + int size                     |
 +--------------------------------+
 | METHODS:                       |
@@ -36,7 +36,7 @@ PhoneBook
 | + hashFunction(String)         |
 +--------------------------------+
 
-LList
+Bucket
 +--------------------------------+
 | ATTRIBUTES:                    |
 | + Person head                  |

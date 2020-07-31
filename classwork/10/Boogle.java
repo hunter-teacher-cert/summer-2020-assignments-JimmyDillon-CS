@@ -41,13 +41,13 @@ public class Boogle
     int floor = 0;
     int ceiling = al.size()-1;
 
-    
+
 
     int middle = ceiling/2;
-    
+
     if(al.isEmpty())
       return -1;
-    
+
     while (floor < ceiling){
       if(target == (int)al.get(middle)){
         return middle;
@@ -61,39 +61,38 @@ public class Boogle
         middle = (ceiling+floor)/2;
       }
     }
-    
+
     if(target == (int)al.get(floor)){
       return floor;
     }
     else {
       return -1;
     }
-    */
-    
+
     /* Recursive solution follows:
-    */
-    
+
     return binSearchHelper(al, target, floor, ceiling);
+    */
   }
-  
+
   public static int binSearchHelper(ArrayList al, int target, int lo, int hi){
     int mid = (lo + hi) / 2;
-   
+
     if(al.isEmpty())
       return -1;
-    
+
     if(target == (int)al.get(mid))
       return mid;
-  
+
     else if (lo == hi)
       return -1;
-  
+
     else if (target < (int)al.get(mid))
       return binSearchHelper(al, target, lo, mid - 1);
-    
+
     else if (target > (int)al.get(mid))
       return binSearchHelper(al, target, mid + 1, hi);
-    
+
     else
       return -1;
   }
@@ -174,15 +173,15 @@ public class Boogle
     System.out.println(sal000);
     System.out.println(linSearch(sal000,3));
     System.out.println(binSearch(sal000,3));
-    
+
 
     System.out.println("\n"+"sal00"+":");
     ArrayList sal00 = prestoSortedArrayListo(5,0,100);
     System.out.println(sal00);
     System.out.println(linSearch(sal00,3));
     System.out.println(binSearch(sal00,3));
- 
-   
+
+
     System.out.println("\n"+"sal01"+":");
     ArrayList sal01 = prestoSortedArrayListo(5,0,100);
     System.out.println(sal01);
@@ -225,21 +224,21 @@ public class Boogle
     System.out.println(linSearch(al, ));
     System.out.println(binSearch(al, ));
     */
-    
+
 /**
        ~~~ The RSPB Special Trace-athon ~~~
        YOUR MISSION:
        Form a Dynamic Duo of Destiny or a Trio of Triump. Conjure team name portending greatness (TNPG).
        Copypasta this into main method of your java sourcecode file containing methods linSearch and binSearch
          (Boogle.java for almost all of you)
-       Verify it works. 
-          (If any test calls do not yield expected outputs, there is some tuning to be done... 
+       Verify it works.
+          (If any test calls do not yield expected outputs, there is some tuning to be done...
            Probably best to just grab a working version for now.)
        On KtS, with at least 1 tracing buddy, trace out each binSearch() call.
-       NOTA BENE: The second batch of test calls are identical to the first, 
+       NOTA BENE: The second batch of test calls are identical to the first,
                   except that the search space has grown by 1 element...
 **/
-    
+
     ArrayList salamander = new ArrayList();
 
     //explicitly fill arraylist with intent to search for

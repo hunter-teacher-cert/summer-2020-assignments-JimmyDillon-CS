@@ -2,10 +2,10 @@ import java.io.*;
 import java.util.*;
 
 
-public class LList{
+public class Bucket{
     private Person head;
 
-    public LList(){
+    public Bucket(){
 	     head = null;
     }
 
