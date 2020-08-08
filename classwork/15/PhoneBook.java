@@ -1,10 +1,10 @@
 public class PhoneBook{
-  private LList[] buckets;
+  private Bucket[] buckets;
   private static int size;
   private static int entries;
 
   public PhoneBook(int size){
-      buckets = new LList[size];
+      buckets = new Bucket[size];
       this.size = size;
       entries = 0;
   }
@@ -16,7 +16,7 @@ public class PhoneBook{
       String last = newPerson.getLast();
       int hash = hashFunction(newPerson);
       if (buckets[hash] == null){
-        LList newBucket = new LList();
+        Bucket newBucket = new Bucket();
         buckets[hash] = newBucket;
       }
       buckets[hash].add(newPerson);
