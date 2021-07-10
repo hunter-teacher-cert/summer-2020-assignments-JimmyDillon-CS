@@ -1,7 +1,7 @@
-* Last name:
-* First name:
+* Last name: Dillon
+* First name: Jimmy
 * Github username:
-
+JimmyDillon-CS
 * Instructions:
 
 Fill out the top of this form, commit and push it back to GitHub.

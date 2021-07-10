@@ -1,0 +1,29 @@
+1. What is the output of the following program? Be precise about where there are spaces and where there are newlines.
+Hint: Start by describing in words what ping and baffle do when they are invoked.
+
+ping() prints a period. baffle() prints "wug" and then calls ping(), resulting in "wug." zoop() calls baffle(), prints "You wugga ", then calls baffle() again.
+
+The output is
+
+"No, I " + zoop() + "I " + baffle()
+
+which reduces to:
+
+"No, I " + baffle () + "You wugga " + baffle() + "I " + baffle()
+
+which reduces to:
+
+"No, I " + "wug." + "You wugga " + "wug." + "I " + "wug."
+
+or:
+
+"No, I wug. You wugga wug. I wug."
+
+2. Draw a stack diagram that shows the state of the program the first time ping is invoked.
+
+[main] -> [zoop] -> [baffle] -> [ping]
+Output: "No, I " + "wug" + "."
+
+3. What happens if you invoke baffle(); at the end of the ping method? (We will see why in the next chapter.)
+
+ping() would invoke baffle(), which would in turn invoke ping(), so on and so forth, creating a psuedo-infinite loop via recursion.

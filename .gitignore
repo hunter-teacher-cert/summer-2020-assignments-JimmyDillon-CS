@@ -1,0 +1,8 @@
+# Misc
+.DS_Store
+*Time.java#
+.replit
+*.class
+
+#Temp Files
+*~
